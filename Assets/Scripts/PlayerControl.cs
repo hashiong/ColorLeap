@@ -37,11 +37,37 @@ public class PlayerControl : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Ground"))
-        {
-            isGrounded = true;
-        }
+     
+                if (collision.gameObject.CompareTag("Base") || collision.gameObject.CompareTag("Ground"))
+                {
+                    isGrounded = true;
+                }
+
     }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+
+        Debug.Log("Triggered!");
+        if (other.gameObject.CompareTag("Ground"))
+        {
+
+
+            if (GetComponent<SpriteRenderer>().color != other.GetComponent<SpriteRenderer>().color)
+            {
+
+                Debug.Log("Triggered, different color: " + other.name);
+                other.GetComponent<Collider2D>().enabled = false;
+            }
+            else
+            {
+                Debug.Log("Triggered, same color: " + other.name);
+                other.GetComponent<Collider2D>().enabled = true;
+            }
+        }
+
+    }
+
 
 
     //void OnCollisionExit2D(Collision2D collision)
