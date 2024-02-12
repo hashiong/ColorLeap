@@ -12,6 +12,8 @@ public class Timer : MonoBehaviour
 
     bool isRunning = false;
     TimeSpan timespan;
+    public GameObject EndScene;
+    public GameObject WinScene;
 
 
 
@@ -19,20 +21,33 @@ public class Timer : MonoBehaviour
     void Start()
     {
         isRunning = true;
-        
+        EndScene.SetActive(false);
+        //GameObject endScene = GameObject.FindGameObjectWithTag("GameOver");
+        //endScene.SetActive(false);
+
     }
 
     // Update is called once per frame
     private void Update()
     {
+        
         if (isRunning)
         {
           time -= Time.deltaTime;
             
         }
+    
 
         if(time < 0)
         {
+            bool isActive = gameObject.activeInHierarchy;
+
+            if (isActive)
+            {
+                isRunning = false;
+                return;
+            }
+
             time = 0;
             isRunning = false;
             // Find the GameObject with a specific tag (replace "OtherObjectTag" with the actual tag of the otherObject)
@@ -53,12 +68,20 @@ public class Timer : MonoBehaviour
 
             }
 
+            EndScene.SetActive(true);
+
 
         }
+        
 
         timespan = TimeSpan.FromSeconds(time);
 
         timerText.text = string.Format("{0:D2}:{1:d2}:{2:D2}", timespan.Hours, timespan.Minutes, timespan.Seconds);
+    }
+
+    public void stopRunning()
+    {
+        isRunning = false;
     }
 
 

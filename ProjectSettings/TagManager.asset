@@ -8,6 +8,8 @@ TagManager:
   - Star
   - Base
   - Platform
+  - GameOver
+  - Time
   layers:
   - Default
   - TransparentFX
