@@ -1557,7 +1557,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timerText: {fileID: 614102276}
-  time: 10
+  time: 13
   EndScene: {fileID: 543419394}
   WinScene: {fileID: 318771393}
 --- !u!1 &877318172

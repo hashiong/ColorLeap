@@ -25,7 +25,8 @@ public class Destination : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-      
+            GameObject time = GameObject.FindGameObjectWithTag("Time");
+
             // Get the script component from the otherObject
             PlayerController2 playerControlScriptComponent = other.GetComponent<PlayerController2>();
             if (playerControlScriptComponent != null)
@@ -39,8 +40,12 @@ public class Destination : MonoBehaviour
                 rd2DScriptComponent.constraints = RigidbodyConstraints2D.FreezePosition | RigidbodyConstraints2D.FreezeRotation;
 
             }
+            
+
 
             PassedScene.SetActive(true);
+
+
         }
 
     }

@@ -36,17 +36,18 @@ public class Timer : MonoBehaviour
           time -= Time.deltaTime;
             
         }
-    
+        bool isActive = WinScene.activeInHierarchy;
 
-        if(time < 0)
+        if (isActive)
         {
-            bool isActive = gameObject.activeInHierarchy;
+            isRunning = false;
+            return;
+        }
 
-            if (isActive)
-            {
-                isRunning = false;
-                return;
-            }
+
+        if (time < 0 && isRunning)
+        {
+            
 
             time = 0;
             isRunning = false;
