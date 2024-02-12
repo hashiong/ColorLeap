@@ -7,6 +7,7 @@ TagManager:
   - Ground
   - Star
   - Base
+  - Platform
   layers:
   - Default
   - TransparentFX
@@ -14,9 +15,9 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
-  - 
+  - Active Platform
+  - Inactive Platform
+  - UI2
   - 
   - 
   - 
@@ -41,6 +42,12 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Background
+    uniqueID: 1703413427
+    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Platform
+    uniqueID: 3704811791
     locked: 0
